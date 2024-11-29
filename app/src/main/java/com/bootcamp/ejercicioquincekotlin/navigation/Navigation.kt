@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.bootcamp.ejercicioquincekotlin.onBoardings.MainOnBoarding
 
 import com.bootcamp.ejercicioquincekotlin.viewmodel.PatientViewModel
 import com.bootcamp.ejercicioquincekotlin.view.PatientsView
@@ -18,7 +19,8 @@ fun Navigation() {
     val patientViewModel: PatientViewModel = viewModel()
 
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "patients") {
+    NavHost(navController = navController, startDestination = "tutorial") {
+        composable(route = "tutorial") { MainOnBoarding(navController) }
         composable("patients") {
             PatientsView(navController = navController, patientviewModel = patientViewModel)
         }
