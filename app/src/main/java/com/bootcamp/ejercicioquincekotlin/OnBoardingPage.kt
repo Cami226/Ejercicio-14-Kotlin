@@ -20,6 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.bootcamp.ejercicioquincekotlin.dataStore.StoreBoarding
 import com.bootcamp.ejercicioquincekotlin.onBoardings.ButtonFinnish
 import com.bootcamp.ejercicioquincekotlin.onBoardings.LoaderData
 import com.bootcamp.ejercicioquincekotlin.onBoardings.PageData
@@ -33,7 +34,9 @@ import com.google.accompanist.pager.PagerState
 fun OnBoardingPage(
     item: List<PageData>,
     pagerState: PagerState,
+    modifier: Modifier = Modifier,
     navController: NavController,
+    store: StoreBoarding
 
     ) {
     Box(modifier = Modifier.fillMaxSize()) {
@@ -85,7 +88,9 @@ fun OnBoardingPage(
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            ButtonFinnish(pagerState.currentPage,navController = navController)
+            ButtonFinnish(pagerState.currentPage,
+                navController,
+                store)
         }
     }
 }

@@ -72,6 +72,6 @@ dependencies {
     implementation("com.google.accompanist:accompanist-pager:0.15.0")
     implementation("com.airbnb.android:lottie-compose:6.5.1")
     implementation("androidx.datastore:datastore-preferences:1.1.1")
-
+    implementation(kotlin("script-runtime"))
 
 }

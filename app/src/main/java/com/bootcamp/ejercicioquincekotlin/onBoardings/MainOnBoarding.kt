@@ -5,25 +5,30 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import com.bootcamp.ejercicioquincekotlin.R
 import com.bootcamp.ejercicioquincekotlin.OnBoardingPage
+import com.bootcamp.ejercicioquincekotlin.dataStore.StoreBoarding
 
 import com.google.accompanist.pager.rememberPagerState
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun MainOnBoarding(navController: NavController) {
+fun MainOnBoarding(navController: NavController,
+                   store: StoreBoarding
+
+
+) {
     val items = ArrayList<PageData>()
 
     items.add(
         PageData(
-            R.raw.hola_android, "Introducción al IMC", "Descubre qué es el Índice de" +
-                    " Masa Corporal y cómo puede ayudarte a evaluar tu salud."
+            R.raw.hola_android, "Introducción al IMC", "Crea un registro de todos tus " +
+                    "pacientes y sus datos más importantes, para mantener un orden y seguimiento de cada" +
+                    "uno."
         )
     )
     items.add(
         PageData(
-            R.raw.page_dos, "Cómo calcular tu IMC", "Aprende a " +
-                    "calcular tu IMC usando tu peso y altura con una fórmula sencilla."
+            R.raw.page_dos, "Facil de usar", " Un registro intuitivo y rapido"
         )
     )
     items.add(
@@ -42,7 +47,8 @@ fun MainOnBoarding(navController: NavController) {
     OnBoardingPage(
         item = items,
         pagerState = pagerState,
-        navController = navController
+        navController = navController,
+        store = store
     )
 
 }
